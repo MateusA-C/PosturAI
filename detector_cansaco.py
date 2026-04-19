@@ -6,12 +6,14 @@ from tkinter import messagebox
 from detector_olhos_e_boca import DetectorOlhosEBoca
 import logging
 import time
+from notificador import AlertaErgonomico
 
 class DetectorCansaco(DetectorOlhosEBoca):
     
     def __init__(self):
 
         super().__init__()
+        self.meu_notificador = AlertaErgonomico()
         self._boca = [78, 81, 13, 311, 308, 402, 14, 178]
         self._olho_esquerdo = [33, 160, 158, 133, 153, 144]
         self._olho_direito = [362, 385, 387, 263, 373, 380]
@@ -63,6 +65,10 @@ class DetectorCansaco(DetectorOlhosEBoca):
                         logging.info("O usuário está fadigado!")
                         print(self.score_de_fadiga)
                         #messagebox.showinfo("Usuário cansado","Você parece cansado, por que não da uma pausa...")
+                
+                else:
+                    
+                    self.frame_counter = 0
 
                 if mar_result > self.mar_treshold:
 
@@ -72,7 +78,7 @@ class DetectorCansaco(DetectorOlhosEBoca):
                     #messagebox.showinfo("Usuário cansado","Você parece cansado, por que não da uma pausa...")
             
             if self.score_de_fadiga > 40:
-                messagebox.showinfo("Usuário cansado","Você parece cansado, por que não da uma pausa...")
+                self.meu_notificador.emitir("ALERTA!","Você parece cansado, porque não dá uma pausa? 😉")
                 self.score_de_fadiga = 0
 
             if cv.waitKey(1) == 27:
