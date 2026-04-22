@@ -73,6 +73,12 @@ pip install scipy
 pip install numpy
 pip install pandas
 pip install winotify
+pip install calendar
+pip install sys
+pip install bcrypt
+pip install datetime
+pip install numpy
+
 ```
 
 ### Execução
