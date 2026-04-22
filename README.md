@@ -177,6 +177,13 @@ Ajuste conforme necessário para sua câmera.
 **Problema**: Banco de dados corrompido
 - Delete `posturai.db`
 - A aplicação criará um novo banco automaticamente
+  ## 📂 Download do Modelo
+
+Para que a detecção facial funcione, você precisa baixar o arquivo do modelo `face_landmarker.task`.
+
+1. Acesse a [Documentação do MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker/index?hl=pt-br#models).
+2. Na seção **Models**, escolha e baixe o modelo desejado.
+3. Coloque o arquivo `.task` na pasta raiz do projeto (ou na pasta que você definiu no código).
 
 ## 📝 Licença
 
